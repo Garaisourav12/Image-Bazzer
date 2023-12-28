@@ -12,7 +12,7 @@ function InfScroll({ children, getNext, data, hasMore, loading, Loader }) {
             const scrollHeight = scrollContainer.current.offsetHeight*100/scrollContainer.current.scrollHeight;
             scrollThumb.current.style.height = `${scrollHeight}%`;
             scrollThumb.current.style.top = (scrollContainer.current.scrollTop*100/scrollContainer.current.scrollHeight) + '%';
-        }, 1)
+        }, 100)
 
         scrollContainer.current.addEventListener('scroll', handleScroll);
         return () => scrollContainer.current.removeEventListener('scroll', handleScroll);
