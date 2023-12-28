@@ -1,0 +1,113 @@
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+::-webkit-scrollbar{
+    width: 0;
+}
+
+
+.main{
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    overflow-y: auto;
+    background-color: rgb(202, 154, 247);
+}
+
+.header{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+    padding: 1rem;
+}
+
+.search-bar{
+    display: flex;
+    width: 80%;
+    border-radius: 1.5rem;
+}
+.search-inp{
+    flex: 1;
+    padding: .5rem 1rem;
+    border: none;
+    outline: none;
+    border-radius: 1.5rem 0 0 1.5rem;
+    background-color: rgb(232, 231, 231);
+}
+.search-btn{
+    padding: .5rem 1rem;
+    border: none;
+    border-radius: 0 1.5rem 1.5rem 0;
+    background-color: green;
+    color: white;
+    font-weight: bold
+}
+
+.search-btn:hover{
+    cursor: pointer;
+    opacity: .9;
+}
+
+
+.galary{
+    flex: 1;
+    margin: 1rem;
+    display: flex;
+    overflow-y: auto;
+    position: relative;
+}
+
+.scroll-container{
+    flex: 1;
+    overflow-y: auto;
+}
+.scroll-content{
+    width: 100%;
+    display: grid;
+    grid-template-columns: repeat(3,1fr);
+    gap: .8rem;
+}
+
+.scroll-bar{
+    position: absolute;
+    z-index: 1;
+    top: 0;
+    right: .4rem;
+    width: .4rem;
+    height: 100%;
+}
+.scroll-thumb{
+    width: 100%;
+    position: relative;
+    background-color: green;
+    border-radius: .5rem;
+
+}
+
+.loader{
+    padding: 2rem;
+    display: flex;
+    justify-content: center;
+}
+
+
+.col{
+    display: flex;
+    flex-direction: column;
+    gap: .8rem;
+}
+
+.col>img{
+    width: 100%;
+}
+
+
+@media (max-width: 600px){
+    .scroll-content{
+        grid-template-columns: repeat(1,1fr);
+    }
+}
