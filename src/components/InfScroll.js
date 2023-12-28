@@ -8,6 +8,17 @@ function InfScroll({ children, getNext, data, hasMore, loading, Loader }) {
 
 
     useEffect(() => {
+        const resizeObserver = new ResizeObserver(() => {
+            const scrollHeight = scrollContainer.current.offsetHeight*100/scrollContainer.current.scrollHeight;
+            scrollThumb.current.style.height = `${scrollHeight}%`;
+            scrollThumb.current.style.top = (scrollContainer.current.scrollTop*100/scrollContainer.current.scrollHeight) + '%';
+        });
+
+        resizeObserver.observe(scrollContainer.current);
+    }, [])
+
+
+    useEffect(() => {
         setTimeout(() => {
             const scrollHeight = scrollContainer.current.offsetHeight*100/scrollContainer.current.scrollHeight;
             scrollThumb.current.style.height = `${scrollHeight}%`;
@@ -17,6 +28,7 @@ function InfScroll({ children, getNext, data, hasMore, loading, Loader }) {
         scrollContainer.current.addEventListener('scroll', handleScroll);
         return () => scrollContainer.current.removeEventListener('scroll', handleScroll);
     }, [data])
+
 
     useEffect(() => {
         scrollThumb.current.style.top = '0';
