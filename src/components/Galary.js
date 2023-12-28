@@ -20,7 +20,7 @@ function Galary() {
 
     async function getData(){
         const BASE_URL = 'https://api.unsplash.com';
-        const API_KEY = 'xOcVas6OE0uPSPVezKytCOnydMN4t3QqA8qMq4rWjvc';
+        const API_KEY = 'F5Qv_QyYt0qrDNyN99pl5GOv__IBrT5cOXfunbCXrDg';
         const END_POINT = '/search/photos';
 
         try{
