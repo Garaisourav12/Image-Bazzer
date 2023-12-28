@@ -5,6 +5,7 @@ function InfScroll({ children, getNext, data, hasMore, loading, Loader }) {
     const params = useParams();
     const scrollContainer = useRef();
     const scrollThumb = useRef();
+    let scrollTimeout = null;
 
 
     useEffect(() => {
@@ -36,6 +37,16 @@ function InfScroll({ children, getNext, data, hasMore, loading, Loader }) {
     }, [params])
 
     function handleScroll(){
+        scrollThumb.current.style.background = 'green';
+
+        // Clear the previous timeout
+        if(scrollTimeout) clearTimeout(scrollTimeout);
+
+        // Set a timeout to reset the scrolling flag after a certain delay (e.g., 200 milliseconds)
+        scrollTimeout = setTimeout(function () {
+            scrollThumb.current.style.background = 'transparent';
+        }, 800);
+
         scrollThumb.current.style.top = (scrollContainer.current.scrollTop*100/scrollContainer.current.scrollHeight) + '%';
         if(scrollContainer.current.scrollHeight <= scrollContainer.current.offsetHeight+scrollContainer.current.scrollTop+1){
             if(hasMore) getNext();
