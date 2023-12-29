@@ -19,28 +19,27 @@
 
 .header{
     display: flex;
-    flex-direction: column;
+    justify-content: space-between;
     align-items: center;
     gap: 1rem;
-    padding: 1rem;
+    padding: .8rem 5rem;
 }
 
 .search-bar{
     display: flex;
-    width: 70%;
     border-radius: 1.5rem;
 }
 .search-inp{
     flex: 1;
     min-width: 3rem;
-    padding: .8rem 1.5rem;
+    padding: .6rem 1.5rem;
     border: none;
     outline: none;
     border-radius: 1.5rem 0 0 1.5rem;
     background-color: rgb(232, 231, 231);
 }
 .search-btn{
-    padding: .8rem 1.5rem;
+    padding: .6rem 1.5rem;
     border: none;
     border-radius: 0 1.5rem 1.5rem 0;
     background-color: green;
@@ -56,10 +55,11 @@
 
 .galary{
     flex: 1;
-    margin: 1rem;
+    margin: 1rem auto;
     display: flex;
     overflow-y: auto;
     position: relative;
+    width: 85%;
 }
 
 .scroll-container{
@@ -106,10 +106,20 @@
 }
 
 
-@media (max-width: 600px){
-    .search-bar{
-        width: 80%;
+@media (max-width: 1180px){
+    .header{
+        padding-inline: 2rem;
     }
+    .galary{
+        width: 90%;
+    }
+}
+@media (max-width: 700px){
+    .header{
+        flex-direction: column;
+    }
+}
+@media (max-width: 600px){
     .scroll-content{
         grid-template-columns: repeat(1,1fr);
     }

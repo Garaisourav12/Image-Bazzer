@@ -18,7 +18,7 @@ function Header({setQuery}) {
 
     return (
         <div className='header'>
-            <h1>Image Bazzer</h1>
+            <h1 onClick={() => navigate('/')} style={{cursor:'pointer'}}>Image Bazzer</h1>
             <div className="search-bar">
                 <input type="search" className='search-inp' placeholder='Type to search...' value={input} onKeyUp={handleInput} onChange={(e) => setInput(e.target.value)}/>
                 <button onClick={handleSearch} className="search-btn">Search</button>
