@@ -10,11 +10,17 @@ function Header({setQuery}) {
         navigate(`/search/${input}`);
     }
 
+    function handleInput(e){
+        if(e.key === 'Enter'){
+            handleSearch();
+        }
+    }
+
     return (
         <div className='header'>
             <h1>Image Bazzer</h1>
             <div className="search-bar">
-                <input type="search" className='search-inp' placeholder='Type to search...' value={input} onChange={(e) => setInput(e.target.value)}/>
+                <input type="search" className='search-inp' placeholder='Type to search...' value={input} onKeyUp={handleInput} onChange={(e) => setInput(e.target.value)}/>
                 <button onClick={handleSearch} className="search-btn">Search</button>
             </div>
         </div>
