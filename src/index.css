@@ -32,6 +32,7 @@
 }
 .search-inp{
     flex: 1;
+    min-width: 3rem;
     padding: .8rem 1.5rem;
     border: none;
     outline: none;
@@ -84,7 +85,7 @@
     width: 100%;
     position: relative;
     border-radius: .5rem;
-
+    transition-duration: all 1s;
 }
 
 .loader{
