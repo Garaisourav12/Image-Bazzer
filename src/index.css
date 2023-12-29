@@ -107,6 +107,9 @@
 
 
 @media (max-width: 600px){
+    .search-bar{
+        width: 80%;
+    }
     .scroll-content{
         grid-template-columns: repeat(1,1fr);
     }
