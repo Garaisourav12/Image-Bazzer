@@ -24,7 +24,7 @@ function InfScroll({ children, getNext, data, hasMore, loading, Loader }) {
             const scrollHeight = scrollContainer.current.offsetHeight*100/scrollContainer.current.scrollHeight;
             scrollThumb.current.style.height = `${scrollHeight}%`;
             scrollThumb.current.style.top = (scrollContainer.current.scrollTop*100/scrollContainer.current.scrollHeight) + '%';
-        }, 100)
+        }, 500)
 
         scrollContainer.current.addEventListener('scroll', handleScroll);
         return () => scrollContainer.current.removeEventListener('scroll', handleScroll);
@@ -38,11 +38,7 @@ function InfScroll({ children, getNext, data, hasMore, loading, Loader }) {
 
     function handleScroll(){
         scrollThumb.current.style.background = 'green';
-
-        // Clear the previous timeout
         if(scrollTimeout) clearTimeout(scrollTimeout);
-
-        // Set a timeout to reset the scrolling flag after a certain delay (e.g., 200 milliseconds)
         scrollTimeout = setTimeout(function () {
             scrollThumb.current.style.background = 'transparent';
         }, 800);
